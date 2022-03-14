@@ -1,7 +1,9 @@
 import React from 'react'
 import Card from './container/Card'
 
+
 export default function Home() {
+    
     const cards=[
 {
     gradent:"box-gradient",

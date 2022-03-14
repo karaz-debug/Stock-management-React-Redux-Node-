@@ -2,10 +2,15 @@ const MenuList = [
     {
         icon:"icon-home",
         title:"Dashboard",
+        path:"/",
         submenu:[
             {
                 name:"Home",
                 path:"/"
+            },
+            {
+                name:"MY Shop",
+                path:"/register"
             }
         ]
     },
@@ -33,7 +38,7 @@ const MenuList = [
             },
             {
                 name:"Manage Inventory",
-                path:"/product"
+                path:"/product/"
             }
         ]
     },

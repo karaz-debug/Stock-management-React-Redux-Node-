@@ -4,7 +4,7 @@ export default function Treeview(props) {
     const submenu = props.submenu;
     return (
         <li className="treeview">
-         <a href=""> 
+         <a target=""> 
          <i className={props.icon}>  </i>
          <span> {props.name}</span>
           <span

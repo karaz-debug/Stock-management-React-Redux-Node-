@@ -7,24 +7,10 @@ const supplyer = [
     {
         img:"dist/img/img1.jpg",
         name:"manish",
-        phone:"123456789",
+        mobile:"123456789",
         email:"manish@gamil.com",
         address:"Pipari,Rayan,Bhadhoi"
     },
-    {
-        img:"dist/img/img2.jpg",
-        name:"manish",
-        phone:"123456789",
-        email:"manish@gamil.com",
-        address:"Pipari,Rayan,Bhadhoi"
-    },
-    {
-        img:"dist/img/img3.jpg",
-        name:"manish",
-        phone:"123456789",
-        email:"manish@gamil.com",
-        address:"Pipari,Rayan,Bhadhoi"
-    }
 ]
 
     return (

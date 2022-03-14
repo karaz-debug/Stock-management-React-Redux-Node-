@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function Inventable(props) {
     const data = props.des;
     return (
@@ -10,9 +11,9 @@ export default function Inventable(props) {
         <td>{data.qty}</td>
         <td>{data.mes}</td>
         <td>{data.og_price}</td>
-        <td><span className="text-success text-semibold"><i className="fa fa-level-up" aria-hidden="true" /> Rs.{data.profit}</span> </td>
-        <td>{data.og_price+data.profit}</td>  
-        <td>{data.supplier}</td> 
+        <td><span className="text-success text-semibold"><i className="fa fa-level-up" aria-hidden="true" /> Rs.{data.sale_price -data.og_price}</span> </td>
+        <td>{ data.sale_price}</td>  
+        <td>{data.name}</td> 
         <td>
           <button type="button" className="btn btn-sm btn-primary"><i className="fa fa-edit"> </i> Edit</button>
           <span>  </span>

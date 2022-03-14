@@ -7,10 +7,10 @@ const db = mysql.createConnection({
     password:'',
     database:'stock_management'
 })
-// db.connect(err =>{
-//     //if(err){throw err}
-//     if(err){console.log("db not connected")}
-//     else{console.log("db connected")}
-// })
+db.connect(err =>{
+    //if(err){throw err}
+    if(err){console.log("db not connected")}
+    else{console.log("db connected")}
+})
 
 module.exports = db;
