@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./App.css"
 import Head from "./components/Head"
 import Aside from "./components/Aside"
@@ -14,22 +14,23 @@ import Inv from './components/pages/Inv'
 import Sell from './components/pages/Sell'
 import Sup from './components/pages/Sup'
 import Transaction from './components/pages/Transaction'
-import BuzType from './containers/Buztype'
+import MyShop from './containers/MyShop'
 
 export default function App() {
+
    
   return (
     <div class="wrapper boxed-wrapper">
     <Head/>    
     <BrowserRouter>
-    <Aside/>
+    <Aside />
     <div className="content-wrapper">
         <div className="content">
 
           <Switch >
-          
+     
               <Route path="/" exact  > <Home/></Route>
-              <Route path="/register" exact> <BuzType/></Route>
+              <Route path="/register" exact> <MyShop/></Route>
               <Route path="/addsupplier" exact ><AddSup/></Route>
               <Route path="/supplier"  exact><Sup/></Route>
               <Route path="/addproduct"  exact><AddInv/></Route>

@@ -9,7 +9,7 @@ const MenuList = [
                 path:"/"
             },
             {
-                name:"MY Shop",
+                name:"My Profile",
                 path:"/register"
             }
         ]
@@ -58,7 +58,7 @@ const MenuList = [
     },
     {
         icon:"icon-wallet",
-        title:"Sell Product",
+        title:"Product",
         submenu:[
             {
                 name:"Sell",

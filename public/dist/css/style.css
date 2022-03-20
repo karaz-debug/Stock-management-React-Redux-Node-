@@ -3487,7 +3487,7 @@ ul.plan-list li {
 	color: #fff;
 	background-color: transparent;
 }
-.nav li.nav-item a:hover, .nav li.nav-item a:active, .nav li.nav-item a:focus {
+.nav li.nav-item a:hover{
 	color: #000;
 }
 .nav-pills>li>a {
@@ -4110,7 +4110,7 @@ table.text-center, table.text-center td, table.text-center th {
 	width: 100%;
 }
 .treeview-menu {
-	display: none;
+
 	list-style: none;
 	padding: 0;
 	margin: 0;

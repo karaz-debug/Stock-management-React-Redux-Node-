@@ -8,6 +8,10 @@ export default function AddInv() {
 
   const measurement = [
     {
+      value: 'Peice',
+      label: 'Pcs',
+    },
+    {
       value: 'Weight',
       label: 'KG',
     },
@@ -54,25 +58,25 @@ export default function AddInv() {
  }
 
  const insertData = (id,label,val)=>  {
-  if(label=='name'){
+  if(label === 'name'){
     setFormCount((oldlist)=>{
       oldlist[id].name = val;
      return oldlist;
   })
   }
-  else if(label=='amount'){
+  else if(label === 'pamount'){
     setFormCount((oldlist)=>{
       oldlist[id].amount = val;
      return oldlist;
   })
   }
-  else if(label=='msr'){
+  else if(label === 'msr'){
     setFormCount((oldlist)=>{
       oldlist[id].msr = val;
      return oldlist;
   })
   }
-  else if(label=='qty'){
+  else if(label === 'qty'){
     setFormCount((oldlist)=>{
       oldlist[id].qty = val;
      return oldlist;

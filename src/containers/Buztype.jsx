@@ -34,6 +34,10 @@ export default function Buztype() {
 
             <div className="row">
                 <div class="col-12 justify-content-center">
+
+            
+                
+
                     <h3 className="text-black">Select Categories</h3>
                     <ul className="nav nav-pills m-t-30 justify-content-end m-b-30">
                         <li className="nav-item"> <a href="" className="nav-link " data-toggle="tab">Retailer</a>

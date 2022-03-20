@@ -3,7 +3,7 @@ import React from 'react'
 export default function Supcard(props) {
     const data = props.des;
     return (
-        <div className="card col-lg-12"> 
+        <div className="card col-10"> 
         <img className="card-img-top img-responsive img-rounded m-t-1 " src={data.img} alt="Supplyer" />
         <div className="card-body">
           <h4 className="card-title">{data.name}</h4>

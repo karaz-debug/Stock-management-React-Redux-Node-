@@ -21,9 +21,9 @@ export default function Inv() {
 
    }
 
-   useEffect(() => {
-     fecthStocks();
-   }, [])
+  //  useEffect(() => {
+  //    fecthStocks();
+  //  }, [])
  
     return (
         <div className="row">

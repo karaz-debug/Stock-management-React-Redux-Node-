@@ -2,7 +2,7 @@ import React from 'react'
 import Treeview from './aside/Treeview'
 import MenuList from './aside/menulist'
 
-export default function Aside() {
+export default function Aside(prop) {
   
  
   return (

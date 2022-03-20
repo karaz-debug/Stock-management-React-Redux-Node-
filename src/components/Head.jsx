@@ -10,7 +10,7 @@ export default function Head() {
         <ul className="nav navbar-nav pull-left">
           <li>
           <span className="nav_head sidebar-toggle" data-toggle="push-menu" ></span> </li>
-          <li className="user user-menu p-ph-res"> <span  className="nav_head">User(Admin)</span>
+          <li className="user user-menu p-ph-res"> <span  className="nav_head">Ubrosoft Inventory Management</span>
           </li>
         </ul>
        
