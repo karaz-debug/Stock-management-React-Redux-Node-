@@ -53,7 +53,7 @@ export default function MyShop() {
                                     <div className="form-group">
                                         <label htmlFor="example-email" className="col-md-12">Email</label>
                                         <div className="col-md-12">
-                                            <input value={myShopDetail.email} className="form-control form-control-line" name="example-email" id="example-email" type="email" />
+                                            <input value={myShopDetail.email} className="form-control form-control-line" id="example-email" type="email" />
                                         </div>
                                     </div>
 

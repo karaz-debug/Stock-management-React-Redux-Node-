@@ -92,7 +92,8 @@ export default function Sell() {
                 </table>
               </div>
             </ul>
-            <button className="btn btn-success btn-block">Submit</button>
+            <button className="btn btn-success btn-block" data-toggle="modal" data-target="#reciptModel" >Submit</button>
+
           </div>
           {/* /.box-body */}
         </div>
@@ -196,8 +197,139 @@ export default function Sell() {
         </div>
       </div>
 
-      {/* /.col */}
+
+
+
+      {/* The Modal */}
+      <div className="modal fade" id="reciptModel">
+        <div className="modal-dialog modal-lg">
+          <div className="modal-content">
+            {/* Modal Header */}
+            <div className="modal-header">
+              <div className="col">
+                <h4 className="modal-title"><strong>Company Name</strong>  </h4>
+                <address>
+                  2nd Floor, Janki Nagar Mod,<br /> Lanka, Samne Ghat Rd,<br /> near BHU Trauma Centre,<br /> Varanasi, Uttar Pradesh 221005
+
+                  <br />
+                  Phone:<b> 9876543110</b><br />
+                  Email:<b>demo@ubrosoft.com </b>
+                </address>
+              </div>
+
+
+              <div className="col-sm-4 invoice-col"> <b>Invoice #007612</b><br />
+                <b>Order ID:</b> 4F3S8J<br />
+                <b>Payment Due:</b> 2/22/2014<br />
+                <b>GST:</b> 968-34567 </div>
+
+            </div>
+            {/* Modal body */}
+            <div className="modal-body">
+              <div className="row ">
+                <div className="col-xs-12 table-responsive">
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Sr.</th>
+                        <th>Product</th>
+                        <th>Qty </th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Call of Duty</td>
+                        <td>5</td>
+                        <td>500</td>
+                        <td>$64.50</td>
+                      </tr>
+
+                      <tr>
+                        <td>2</td>
+                        <td>Grown Ups Blue Ray</td>
+                        <td>642</td>
+                        <td>54</td>
+                        <td>$25.99</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="col-6">
+
+                  <form className="form-horizontal ">
+                    <div className="form-group row">
+                      <label htmlFor="uname" className="col-sm-3 control-label">Payment</label>
+                      <div className="col-sm-6">
+                        <select className="form-control" style={{fontSize: '0.75rem'}}>
+                          <option>Cash</option>
+                          <option>Online</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label htmlFor="email2" className="col-sm-3 control-label">Tax</label>
+                      <div className="col-sm-6">
+                        <div className="input-group">
+                          <input className="form-control" placeholder="14" type="number" />
+                          <div className="input-group-addon">%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label htmlFor="web1" className="col-sm-3 control-label">Discount</label>
+                      <div className="col-sm-6">
+                        <div className="input-group">
+                          <input className="form-control" id="web1" placeholder="5" type="number" />
+                          <div className="input-group-addon">%</div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </form>
+
+                </div>
+
+                <div className="col-6">
+
+                  <div className="table-responsive">
+                    <table className="table ">
+                      <tbody><tr>
+                        <th>Subtotal:</th>
+                        <td>$250.30</td>
+                      </tr>
+                        <tr>
+                          <th>Tax (9.3%)</th>
+                          <td>$10.34</td>
+                        </tr>
+                        <tr>
+                          <th>Discount(10.5%):</th>
+                          <td>$5.80</td>
+                        </tr>
+                        <tr>
+                          <th>Total:</th>
+                          <td>$265.24</td>
+                        </tr>
+                      </tbody></table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Modal footer */}
+            <div className="modal-footer">
+              <button type="button" className="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+              <button type="button" className="btn btn-success pull-right" data-dismiss="modal"><i className="fa fa-credit-card" /> Submit  </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
 
   )
 }

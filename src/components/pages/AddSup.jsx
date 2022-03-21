@@ -20,6 +20,13 @@ export default function AddSup() {
                   </div>
                   <div className="col-md-6">
                     <div className="form-group has-feedback">
+                      <label className="control-label">Company Name</label>
+                      <input className="form-control" placeholder="Company Name" type="text" required />
+                      <span className="fa fa-building-o form-control-feedback" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-group has-feedback">
                       <label className="control-label">GST</label>
                       
                       <input className="form-control" placeholder="" type="text" required />
@@ -46,25 +53,7 @@ export default function AddSup() {
                       <textarea className="form-control" id="placeTextarea" rows={3} placeholder="Address..."  defaultValue={""} />
                     </div>
                   </div>
-                  <div className="col-md-3">
-                    <div className="form-group has-feedback">
-                      <label className="control-label"> Upload Profile Pic </label>
-                      <div className="dropify-wrapper">
-                        <div className="dropify-loader" style={{display: 'none'}} />
-                        <div className="dropify-errors-container">
-                          <ul />
-                        </div><input type="file" id="input-file-now" className="dropify" /><button type="button" className="dropify-clear">Remove</button>
-                        <div className="dropify-preview" style={{display: 'none'}}><span className="dropify-render" />
-                          <div className="dropify-infos">
-                            <div className="dropify-infos-inner">
-                              <p className="dropify-filename"><span className="file-icon" /> <span className="dropify-filename-inner" /></p>
-                              <p className="dropify-infos-message">Drag and drop or click to replace</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
                   <div className="col-md-12">
                     <button type="submit" className="btn btn-success">Submit</button>
                   </div>

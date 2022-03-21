@@ -4,12 +4,12 @@ export default function Supcard(props) {
     const data = props.des;
     return (
         <div className="card col-10"> 
-        <img className="card-img-top img-responsive img-rounded m-t-1 " src={data.img} alt="Supplyer" />
         <div className="card-body">
-          <h4 className="card-title">{data.name}</h4>
-          <h5 className="card-title"><i className="fa fa-phone" /> {data.mobile}</h5>
+        <h5 className="card-title"><i className="fa fa-building-o" /> {data.company}</h5>
+          <p className="card-title"><i className="fa fa-user-o" />  {data.name}</p>
+          <p className="card-title"><i className="fa fa-phone" /> {data.mobile}</p>
           <p className="card-text"><i className="fa fa-envelope-open-o" /> {data.email}</p>
-          <p className="card-text">{data.address}</p>
+          <p className="card-text"><i className="fa fa-address-card-o" /> {data.address}</p>
           <button className="btn btn-primary">Edit</button>
           <span>  </span>
           <button className="btn btn-danger">Delete</button>

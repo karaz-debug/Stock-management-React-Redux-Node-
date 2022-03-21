@@ -5,40 +5,14 @@ export default function Sup() {
 
   const supplyer = [
     {
-      img: "dist/img/img1.jpg",
+      company: "Ubrosoft",
       name: "manish",
       mobile: "123456789",
       email: "manish@gamil.com",
-      address: "Pipari,Rayan,Bhadhoi"
+      address: "Pipari,Rayan,Bhadhoi",
+      gst:"875415"
     },
-    {
-      img: "dist/img/img1.jpg",
-      name: "manish",
-      mobile: "123456789",
-      email: "manish@gamil.com",
-      address: "Pipari,Rayan,Bhadhoi"
-    },
-    {
-      img: "dist/img/img1.jpg",
-      name: "manish",
-      mobile: "123456789",
-      email: "manish@gamil.com",
-      address: "Pipari,Rayan,Bhadhoi"
-    },
-    {
-      img: "dist/img/img1.jpg",
-      name: "manish",
-      mobile: "123456789",
-      email: "manish@gamil.com",
-      address: "Pipari,Rayan,Bhadhoi"
-    },
-    {
-      img: "dist/img/img1.jpg",
-      name: "manish",
-      mobile: "123456789",
-      email: "manish@gamil.com",
-      address: "Pipari,Rayan,Bhadhoi"
-    },
+   
   ]
 
   return (

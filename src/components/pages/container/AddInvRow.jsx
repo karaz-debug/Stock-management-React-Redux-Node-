@@ -100,7 +100,7 @@ export default function AddInvRow(props) {
               label='Product size'
             />
           </FormControl>
-          <TextField
+          {/* <TextField
             id="date"
             label="Date"
             type="date"
@@ -110,7 +110,7 @@ export default function AddInvRow(props) {
             InputLabelProps={{
               shrink: true,
             }}
-          />
+          /> */}
        
 
           <TextField

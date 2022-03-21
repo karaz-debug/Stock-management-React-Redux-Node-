@@ -25,13 +25,7 @@ export default function AddCust() {
                       <span className="fa fa-phone form-control-feedback" aria-hidden="true" />
                     </div>
                   </div>
-                  <div className="col-md-6">
-                    <div className="form-group has-feedback">
-                      <label className="control-label">Age</label>
-                      <input className="form-control" placeholder="Age" type="number" required />
-                      <span className="fa fa-anchor form-control-feedback" aria-hidden="true" />
-                    </div>
-                  </div>
+                 
                   <div className="col-md-6">
                     <div className="form-group has-feedback">
                       <label className="control-label">Date of Birth</label>
