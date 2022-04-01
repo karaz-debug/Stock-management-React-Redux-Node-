@@ -1,29 +1,52 @@
 import React from 'react';
 import Inventable from './container/Inventable';
-import { useDispatch ,useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import axios from 'axios';
-import { addStocks} from '../../redux/action/stockAction';
+
+
+
+
+
+
+ 
+
+
 
 export default function Inv() {
   
-  const products = useSelector((state)=>state.allStocks.stocks);
-  const dispacth = useDispatch();
+  const products = [
+    {
+        id:1,
+        product:"Something",
+        qty:1,
+        mes:"45kg",
+        og_price:68,
+        profit:22,
+        sale_price:90,
+        supplier:"Manish"
+    },
+    {
+        id:1,
+        product:"Something",
+        qty:1,
+        mes:"45kg",
+        og_price:60,
+        profit:22,
+        sale_price:90,
+        supplier:"Manish"
+    },
+    {
+        id:1,
+        product:"Something",
+        qty:1,
+        mes:"45kg",
+        og_price:68,
+        profit:22,
+        sale_price:90,
+        supplier:"Manish"
+    },
+]
+;
 
-  const fecthStocks = async () =>{
-    const response = await axios 
-    .get('http://localhost:5050/api/stocks')
-    .catch((err)=>{
-      console.log("Err",err)
-    });
-    console.log(response.data);
-    dispacth(addStocks(response.data))
 
-   }
-
-  //  useEffect(() => {
-  //    fecthStocks();
-  //  }, [])
  
     return (
         <div className="row">

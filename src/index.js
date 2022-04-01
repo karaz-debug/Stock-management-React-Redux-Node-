@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Provider } from 'react-redux';
-import store from './redux/store'
+
+import "./dist/bootstrap/css/bootstrap.min.css";
+import "./dist/css/style.css";
+import "./dist/css/font-awesome/css/font-awesome.min.css";
+import "./dist/css/et-line-font/et-line-font.css";
+import "./dist/css/themify-icons/themify-icons.css";
+import "./dist/css/simple-lineicon/simple-line-icons.css";
+import "./dist/css/skins/_all-skins.min.css";
+import "./dist/plugin/dataTables.bootstrap.min.css";
 
 
 
 
 ReactDOM.render( 
-  <Provider store={store}>
+
 <App/>
-  </Provider>
  ,
   document.getElementById('root')
 );

@@ -5,6 +5,7 @@ export default function Sup() {
 
   const supplyer = [
     {
+      id:1,
       company: "Ubrosoft",
       name: "manish",
       mobile: "123456789",

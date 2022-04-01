@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Header() {
     return (
-        <header class="main-header">
+        <header className="main-header">
       <nav className="navbar blue-bg navbar-static-top"> 
         <div className="navbar-custom-menu">
           <ul className=" nav navbar-nav">

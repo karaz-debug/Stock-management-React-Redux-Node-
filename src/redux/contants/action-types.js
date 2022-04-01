@@ -1,6 +1,0 @@
-export const ActionTypes = {
-    ADD_STOCK : "ADD_STOCK",
-    DISPLAY_STOCK : "DISPLAY_STOCK",
-    DELETE_STOCK : "DELETE_STOCK",
-    UPDATE_STOCK : "UPDATE_STOCK"
-}

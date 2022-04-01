@@ -10,7 +10,7 @@ export default function Buzcard(props) {
         <img  className="img-responsive " src={`https://image.flaticon.com/icons/png/512/${data.img}`}/>
            </div>
        
-          <div class="card-footer text-muted">{data.label}</div>
+          <div className="card-footer text-muted">{data.label}</div>
         </div>
       </div>
     )

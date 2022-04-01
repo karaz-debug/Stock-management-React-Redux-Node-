@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./App.css"
 import Head from "./components/Head"
 import Aside from "./components/Aside"
@@ -20,7 +20,8 @@ export default function App() {
 
    
   return (
-    <div class="wrapper boxed-wrapper">
+   
+    <div className="wrapper boxed-wrapper">
     <Head/>    
     <BrowserRouter>
     <Aside />
@@ -32,6 +33,7 @@ export default function App() {
               <Route path="/" exact  > <Home/></Route>
               <Route path="/register" exact> <MyShop/></Route>
               <Route path="/addsupplier" exact ><AddSup/></Route>
+              <Route path="/addsupplier/:sup" exact ><AddSup/></Route>
               <Route path="/supplier"  exact><Sup/></Route>
               <Route path="/addproduct"  exact><AddInv/></Route>
               <Route path="/product"  exact> <Inv/> </Route>

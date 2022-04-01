@@ -33,7 +33,7 @@ export default function Buztype() {
         <>
 
             <div className="row">
-                <div class="col-12 justify-content-center">
+                <div className="col-12 justify-content-center">
 
             
                 

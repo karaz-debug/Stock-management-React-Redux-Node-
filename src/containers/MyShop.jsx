@@ -1,79 +1,123 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+
+
+
+
+
 export default function MyShop() {
 
-    let myShopDetail = {
-        shopName: "",
-        ownerName: "",
-        gstNo: "",
-        email: "",
-        phone: "",
-        address: "",
+    const [myshop, setMyShop] = useState({
+        shopName: "UbroSoft",
+        ownerName: "Ubro",
+        gstNo: "9876-A854B-986",
+        email: "contact@ubrosoft.com",
+        phone: "9876543210",
+        address: "2nd Floor , Samne Ghat Janki nagar Colony , Lanka Varanasi",
+    });
+
+
+
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setMyShop(values => ({ ...values, [name]: value }))
     }
 
-
-
+    const updateMyShope = (event) => {
+        event.preventDefault();
+        console.log(myshop);
+    }
     return (
         <div className="row">
-            <div class="col-12 justify-content-center">
+            <div className="col-12 justify-content-center">
 
                 <div className="card">
                     {/* <div className="card-header">
                         <h4 style={{ textAlign: 'center' }}> My Profile </h4></div> */}
                     <div className="card-body">
-                        <form className="form-horizontal form-material">
+                        <form className="form-horizontal form-material" onSubmit={updateMyShope}>
                             <div className="row">
-                                <div className="col-6">
 
-                                    <div className="form-group">
-                                        <label className="col-md-12">Shop Name</label>
-                                        <div className="col-md-12">
-                                            <input value={myShopDetail.shopName} className="form-control form-control-line" type="text" />
-                                        </div>
+                                <div className="col-md-6">
+
+                                    <div className="form-group ">
+
+                                        <label className="control-label">Shop Name</label>
+                                        <input value={myshop.shopName}
+                                            name="shopName"
+                                            required
+                                            onChange={handleChange}
+                                            className="form-control form-control-line " type="text" />
+
                                     </div>
-                                    <div className="form-group">
-                                        <label className="col-md-12">GST Number</label>
-                                        <div className="col-md-12">
-                                            <input value={myShopDetail.gstNo} className="form-control form-control-line" type="text" />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                            <label className="col-md-12">Phone No</label>
-                                            <div className="col-md-12">
-                                                <input value={myShopDetail.phone} className="form-control form-control-line" type="text" />
-                                            </div>
-                                        </div>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-md-6">
                                     <div className="form-group">
-                                        <label className="col-md-12">Owner Name</label>
-                                        <div className="col-md-12">
-                                            <input value={myShopDetail.ownerName} className="form-control form-control-line" type="text" />
-                                        </div>
+                                        <label className="control-label">Owner Name</label>
+
+                                        <input value={myshop.ownerName}
+                                            name="ownerName"
+                                            required
+                                            onChange={handleChange}
+                                            className="form-control form-control-line" type="text" />
+
                                     </div>
+                                </div>
+                                <div className="col-md-6">
                                     <div className="form-group">
-                                        <label htmlFor="example-email" className="col-md-12">Email</label>
-                                        <div className="col-md-12">
-                                            <input value={myShopDetail.email} className="form-control form-control-line" id="example-email" type="email" />
-                                        </div>
+                                        <label className="control-label">Phone No</label>
+
+                                        <input value={myshop.phone}
+                                            name="phone"
+                                            required
+                                            onChange={handleChange}
+                                            className="form-control form-control-line" type="text" />
+
                                     </div>
-
-
-                                    <div className="form-group">
-                                        <label className="col-md-12">Address</label>
-                                        <div className="col-md-12">
-                                            <textarea rows={4} value={myShopDetail.address} className="form-control form-control-line" spellCheck="false" defaultValue={""} />
-                                        </div>
-                                    </div>
-
-
-
                                 </div>
 
+                                <div className="col-md-6">
+
+                                    <div className="form-group">
+
+                                        <label className="control-label">GST Number</label>
+
+                                        <input value={myshop.gstNo}
+                                            name="gstNo"
+                                            required
+                                            onChange={handleChange}
+                                            className="form-control form-control-line" type="text" />
+
+                                    </div>
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label className="control-label">Email</label>
+
+                                        <input value={myshop.email}
+                                            name="email"
+                                            required
+                                            onChange={handleChange}
+                                            className="form-control form-control-line" id="example-email" type="email" />
+
+                                    </div>
+
+                                </div>
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label className="control-label">Address</label>
+
+                                        <textarea rows={4} value={myshop.address}
+                                            name="address"
+                                            required
+                                            onChange={handleChange}
+                                            className="form-control form-control-line" spellCheck="false" />
+
+                                    </div>
+                                </div>
                             </div>
-
-
-
-
 
 
                             <div className="form-group">
