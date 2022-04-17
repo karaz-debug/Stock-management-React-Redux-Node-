@@ -14,7 +14,6 @@ import "./dist/plugin/dataTables.bootstrap.min.css";
 
 
 
-
 ReactDOM.render( 
 
 <App/>

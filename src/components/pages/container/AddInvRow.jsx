@@ -7,31 +7,134 @@ import InputLabel from '@mui/material/InputLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from "@mui/material/FormControl";
 import Autocomplete from '@mui/material/Autocomplete';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 
 export default function AddInvRow(props) {
 
 
   const [selproduct,setProduct] = useState({});
+  
+
+
+  const [rowdata, setRowData] = useState({
+    unit: "unit",
+    qty:null,
+    hsn:null,
+    purchase:null,
+    selling:null,
+  })
+
+
+//get data from redux or api 
+const Produts = [
+  {
+    name:"Chair",
+    hsn:45811125,
+    unit:'Pcs'
+  },
+  {
+    name:"Fevicol",
+    hsn:788154,
+    unit:'Pcs'
+  },
+  {
+    name:"Table",
+    hsn:9874521,
+    unit:'Pcs'
+  },
+  {
+    name:"Plywood Mica",
+    hsn:845512,
+    unit:'mtr'
+  },
+  {
+    name:"Door",
+    hsn:103125,
+    unit:'Inch'
+  },
+]
+const units = [
+  {
+    value: 'Peice',
+    label: 'Pcs',
+   
+  },
+  {
+    value: 'Weight',
+    label: 'Kg',
+   
+  },
+  {
+    value: 'Volumn',
+    label: 'Ltr',
+   
+  },
+  {
+    value: 'Packet',
+    label: 'Pac',
+   
+  },
+  {
+    value: 'Count',
+    label: 'Dozen',
+    
+  },
+  {
+    value: 'Scale',
+    label: 'Foot',
+
+  },
+  {
+    value: 'Scale',
+    label: 'mm',
+ 
+  },
+  {
+    value: 'Scale',
+    label: 'cm',
+   
+  },
+  {
+    value: 'Scale',
+    label: 'mtr',
+  },
+  {
+    value:"Scale",
+    label:'Inch'
+  }
+]
+
 
 
   const changeProduct = (newValue) =>{
     if(newValue!= null){
       setProduct(newValue);
+      console.log(newValue)
+      setRowData({...rowdata, ['hsn'] :newValue.hsn,['unit'] : newValue.unit})
+      console.log(rowdata)
       return;
     }
     setProduct({
      name:"",
      hsn:""
     });
+    setRowData({hsn : selproduct.hsn})
+   
   }
-  const [values, setValues] = useState(props.f_data);
 
-  const handleDataChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-    props.insData(prop, event.target.value)
-  };
+ 
 
+  const handleChange = (evt) =>{
+    let val = evt.target.value;
+    setRowData({
+      ...rowdata,
+      [evt.target.name]: val
+    });
+
+
+  }
 
   return (
     <div className="row">
@@ -44,7 +147,7 @@ export default function AddInvRow(props) {
             <Autocomplete
                 freeSolo
                 required
-                options={props.products}
+                options={Produts}
                 getOptionLabel = {(opt)=>{
                     return opt.name;
                 }}
@@ -56,53 +159,55 @@ export default function AddInvRow(props) {
               />
             </div>
             <div className="col-sm-10 col-lg-3">
-
-              <TextField sx={{ margin: 1 }}
-
-                onChange={handleDataChange('desc')}
+            <TextField sx={{ margin: 1   }}
                 id="prd_desc"
-                value={props.f_data.name}
                 label='Product Description'
               />
             </div>
             <div className="col-sm-10 col-lg-3">
               <TextField sx={{ margin: 1 }}
-                onChange={handleDataChange('hsn')}
+                 onChange={handleChange}
                 id="prd_hsn"
-                value={selproduct.hsn}
+                name="hsn"
+                value={rowdata.hsn}
                 required
                 label='Product HSN'
                 defaultValue=' '
               />
             </div>
             <div className="col-sm-10 col-lg-3">
-              <Autocomplete
-                  
-                id="combo-box-demo"
-                options={props.units}
-                sx={{ m: 1 }}
-                renderInput={(params) => <TextField {...params} label="Units" />}
-              />
+            <FormControl  sx={{ m: 1 ,minWidth:140}}>
+            <InputLabel id="demo-simple-select-helper-label">Units</InputLabel>
+            <Select
+            name='unit'
+            value={rowdata.unit}
+            onChange={handleChange}
+            label="Units">
+
+          {units.map((val,ind)=>{
+            return ( <MenuItem value={val.label}>{val.label}</MenuItem>)
+          })}
+        </Select>
+        </FormControl>
             </div>
-            <div className="col-sm-10 col-lg-3">
+            {/* <div className="col-sm-10 col-lg-3">
               <TextField sx={{ margin: 1 }}
-                onChange={handleDataChange('size')}
+                
                 id="prd_size"
-                value={props.f_data.name}
+               
                 label='Product size'
               />
-            </div>
+            </div> */}
             <div className="col-sm-10 col-lg-3">
-
-
               <TextField
                 label='Quantity'
-                value={props.f_data.qty}
                 type="number"
-                onChange={handleDataChange("qty")}
+                name='qty'
+                value={rowdata.qty}
+                onChange={handleChange}
                 sx={{ m: 1}}
                 InputProps={{
-                  startAdornment: <InputAdornment position="start">{props.f_data.msr}</InputAdornment>,
+                  startAdornment: <InputAdornment position="start">{rowdata.unit}</InputAdornment>,
                 }}
               />
             </div>
@@ -111,13 +216,14 @@ export default function AddInvRow(props) {
             <FormControl  sx={{ m: 1 }}>
               <InputLabel >Purchase Amount</InputLabel>
               <OutlinedInput
-
-                value={values.amount}
-                onChange={handleDataChange('pamount')}
+              type='number'
+                name='purchase'
+                value={rowdata.purchase}
+                onChange={handleChange}
                 startAdornment={<InputAdornment position="start">₹</InputAdornment>}
                 label="Purchase Amount"
               />
-              <FormHelperText >Per {props.f_data.msr}</FormHelperText>
+              <FormHelperText >Per {rowdata.unit}</FormHelperText>
             </FormControl>
 
             </div>
@@ -125,14 +231,15 @@ export default function AddInvRow(props) {
             <FormControl  sx={{ m: 1 }}>
               <InputLabel >Selling Amount</InputLabel>
               <OutlinedInput
-
-                value={values.amount}
-                onChange={handleDataChange('samount')}
+                type='number'
+                name='selling'
+                value={rowdata.selling}
+                onChange={handleChange}
                 startAdornment={<InputAdornment position="start">₹</InputAdornment>}
                 label="Selling Amount"
                
               />
-              <FormHelperText >Per {props.f_data.msr}</FormHelperText>
+              <FormHelperText >Per {rowdata.unit}</FormHelperText>
             </FormControl>
             </div>
       
@@ -145,7 +252,7 @@ export default function AddInvRow(props) {
         <FormControl fullWidth sx={{ m: 1 }}>
           <InputLabel >Total Puchase</InputLabel>
           <OutlinedInput
-            value={props.f_data.amount * props.f_data.qty}
+            value={rowdata.purchase * rowdata.qty}
             type="number"
             disabled
             startAdornment={<InputAdornment position="start">₹</InputAdornment>}
@@ -156,7 +263,7 @@ export default function AddInvRow(props) {
         <FormControl fullWidth sx={{ m: 1 }}>
           <InputLabel >Total Selling</InputLabel>
           <OutlinedInput
-            value={props.f_data.amount * props.f_data.qty}
+            value={rowdata.selling * rowdata.qty}
             type="number"
             disabled
             startAdornment={<InputAdornment position="start">₹</InputAdornment>}

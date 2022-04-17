@@ -29,20 +29,6 @@ const MenuList = [
         ]
     },
     {
-        icon:"icon-energy",
-        title:"Inventory",
-        submenu:[
-            {
-                name:"Add Inventory",
-                path:"/addproduct"
-            },
-            {
-                name:"Manage Inventory",
-                path:"/product/"
-            }
-        ]
-    },
-    {
         icon:"icon-user",
         title:"Customer",
         submenu:[
@@ -57,15 +43,51 @@ const MenuList = [
         ]
     },
     {
-        icon:"icon-wallet",
+        icon:"ti-shopping-cart",
         title:"Product",
+        submenu:[
+            {
+                name:"Add Product",
+                path:"/addproduct"
+            },
+            {
+                name:"Manage Product",
+                path:"/product/"
+            }
+        ]
+    },
+    {
+        icon:"icon-wallet",
+        title:"Dispatch",
         submenu:[
             {
                 name:"Sell",
                 path:"/sell"
             },
             {
-                name:"Transaction",
+                name:"Eway",
+                path:"/eway"
+            },
+            {
+                name:"Return",
+                path:"/return"
+            }
+        ]
+    },
+    {
+        icon:"ti-printer",
+        title:"Transaction",
+        submenu:[
+            {
+                name:"Sell",
+                path:"/transaction"
+            },
+            {
+                name:"Purchase",
+                path:"/transaction"
+            },
+             {
+                name:"Return",
                 path:"/transaction"
             }
         ]

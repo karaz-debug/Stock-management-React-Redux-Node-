@@ -1,36 +1,4 @@
-/*
-Template Name: Biz Admin
-Author: UXLiner
-*/
 
-// ======
-// line chart
-// ======	
-var ctx = document.getElementById('line-chart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-           label: "Sales",
-            //backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(88, 103, 221)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-                    fill: false,
-                }, {
-          label: "Earning",
-            //backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(0, 140, 211)',
-            data: [15, 15, 10, 20, 30, 10, 25],
-                }]
-            },
-	options: {
-            responsive: true
-        }
-});
 
 // ======
 // Bar chart
@@ -62,6 +30,37 @@ var chart = new Chart(ctx, {
 });
 
 // ======
+
+
+/*
+// ======
+// line chart
+// ======	
+var ctx = document.getElementById('line-chart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+           label: "Sales",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(88, 103, 221)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+                    fill: false,
+                }, {
+          label: "Earning",
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(0, 140, 211)',
+            data: [15, 15, 10, 20, 30, 10, 25],
+                }]
+            },
+	options: {
+            responsive: true
+        }
+});
 // Pie chart
 // ======
 new Chart(document.getElementById("pie-chart"),{
@@ -168,3 +167,5 @@ new Chart(document.getElementById('radar-chart'),{
 		borderWidth:3,
 		responsive: true,
 	}}}});
+
+	*/

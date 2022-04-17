@@ -1,55 +1,204 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SellCartProducts from './container/SellCartProducts'
 import SellProduct from './container/SellProduct'
 import SellCust from './container/SellCust'
 import AddCust from './AddCust'
+import SellBillItem from './container/SellBillItem'
 
 export default function Sell() {
 
-  const cartproducts = [
-    {
-      name: "Apple",
-      qty: "5 kg",
-      price: 450
-    },
-    {
-      name: "Apple",
-      qty: "5 kg",
-      price: 450
-    },
-    {
-      name: "Apple",
-      qty: "5 kg",
-      price: 450
+
+  const [cartprize,setPrize] = useState(0);
+  const [bill,setBill] = useState({
+    tax:0,
+    taxamount:0,
+    discount:0,
+    discountamount:0,
+    invoice:1254,
+    orderID:12,
+    cartprize:0
+  });
+
+
+  const changeBill = (event)=>{
+   let name1 = event.target.name;
+   let value1 = event.target.value;
+   let amount = 0;
+    if(name1 == 'tax'){
+
+      amount = (bill.cartprize*value1)/100;
+      
+      setBill({...bill,
+          tax:value1,
+          taxamount:amount
+      });
     }
-  ]
+    else if(name1 == 'discount'){
+      amount = (bill.cartprize*value1)/100;
+      setBill({...bill,
+        discount:value1,
+        discountamount:amount
+    });
+    }
+  }
+
+
+  const [cartproducts,setCartProduct] = useState([
+  ]);
+  const addToCart = (singleProduct) =>{
+  //  console.log('cart',singleProduct)
+    let pind = products.findIndex(p => p.id == singleProduct.id);
+    setCartProduct(cartproducts => [...cartproducts,{
+      id:singleProduct.id,
+      name:products[pind].name,
+      qty:singleProduct.qty,
+      price:products[pind].price
+    }])
+  }
+
+  const removeFromCart = (ind)=>{
+    setCartProduct((cartproducts) => {
+      return cartproducts.filter((arrElem, index) => {
+        return index !== ind;
+      });
+    })
+  }
+
+  useEffect(() => {
+    let tltprize = 0;
+    cartproducts.map((val,ind)=>{
+      tltprize+=val.price*val.qty
+    });
+    setPrize(tltprize);
+    setBill({...bill,
+      cartprize:tltprize
+  });
+  }, [cartproducts]);
+
+
+
+  const [selectedCustomer,setSelectedCustomer] = useState({});
+  const selectCustomer = (cid)=>{
+
+    let cust = custmors.find(c => c.id == cid);
+    setSelectedCustomer(cust);
+    //console.log(selectedCustomer);
+  }
+
+  
+ 
+
+ 
   const products = [
     {
       id: 1,
-      name: "Apple",
-      qty: 5,
+      name: "Fevicol",
+      qty: 1,
       max_qty: 15,
-      msr: "Kg",
+      msr: "Ltr",
       price: 450,
-      supplier: "Manya"
+      supplier: "Rishub"
     },
     {
       id: 2,
-      name: "Mango",
-      qty: 5,
+      name: "Paint",
+      qty: 1,
       max_qty: 6,
-      msr: "Kg",
-      price: 450,
+      msr: "Ltr",
+      price: 50,
+      supplier: "Manya"
+    }, {
+      id: 3,
+      name: "Plywood",
+      qty: 1,
+      max_qty: 6,
+      msr: "Mtr",
+      price: 500,
+      supplier: "Manya"
+    }, {
+      id: 4,
+      name: "Door",
+      qty: 1,
+      max_qty: 6,
+      msr: "Inch",
+      price: 650,
       supplier: "Manya"
     },
   ]
   const custmors = [
-    {
-      id: 1,
-      name: "Manish",
-      mobile: +97444646454
-    }
+    { 
+      id:1,
+      name:"Irene Richards",
+      mobile:"6-611-013-1451",
+      gstno:"32855352081"
+      },
+      { 
+      id:2,
+      name:"Wade Cattell",
+      mobile:"3-476-602-7870",
+      gstno:"40080478471"
+      },
+      { 
+      id:3,
+      name:"Caleb Butler",
+      mobile:"3-514-214-3661",
+      gstno:"74015758051"
+      },
+      { 
+      id:4,
+      name:"Taylor Graves",
+      mobile:"4-020-326-4517",
+      gstno:"77024246120"
+      },
+      { 
+      id:5,
+      name:"Phillip Tailor",
+      mobile:"2-653-873-6400",
+      gstno:"83606045814"
+      },
+      { 
+      id:6,
+      name:"Abbey Chappell",
+      mobile:"7-101-381-0808",
+      gstno:"83545187300"
+      },
+      { 
+      id:7,
+      name:"Gladys Ralph",
+      mobile:"0-127-350-1213",
+      gstno:"47101623865"
+      }
+      ,
+      { 
+      id:8,
+      name:"Marigold Andersson",
+      mobile:"2-517-040-4714",
+      gstno:"85801500138"
+      },
+      { 
+      id:9,
+      name:"Vivian Hammond",
+      mobile:"0-850-005-7435",
+      gstno:"21032683340"
+      },
+      { 
+      id:10,
+      name:"Regina Lynn",
+      mobile:"4-331-044-1845",
+      gstno:"47415155162"
+      }   
   ]
+
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = "./dist/js/custom.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+
+
+  }, []);
 
   return (
     <div className="row">
@@ -57,8 +206,8 @@ export default function Sell() {
         {/* Product List */}
         <div className="box box-primary">
           <div className="box-profile">
-            <h3 className="profile-username text-center">Customer Name</h3>
-            <p className="text-blue text-center"> +123 456 7890 </p>
+            <h3 className="profile-username text-center">{selectedCustomer.name}</h3>
+            <p className="text-blue text-center"> {selectedCustomer.mobile}</p>
             <ul className="nav nav-stacked sty1">
               <div className="table-responsive">
                 <table className="table no-wrap table-striped">
@@ -67,13 +216,13 @@ export default function Sell() {
                       <th>Product</th>
                       <th>Qty</th>
                       <th>Price</th>
-                      <th>Action</th>
+                      <th id='print'>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     {cartproducts.map((val, ind) => {
                       return (
-                        <SellCartProducts des={val} key={ind} />
+                        <SellCartProducts des={val} key={ind} index={ind} removecart = {(id)=>{removeFromCart(id)}} />
                       )
                     })}
 
@@ -86,7 +235,7 @@ export default function Sell() {
                       <td />
                       <td />
                       <th>Total:</th>
-                      <th className="text-blue"><i className="fa fa-inr" /> 200</th>
+                      <th className="text-blue"><i className="fa fa-inr" /> {cartprize}</th>
                     </tr>
                   </tfoot>
                 </table>
@@ -118,35 +267,43 @@ export default function Sell() {
                       <div className="align-self-center">
                         <h4 className="text-black m-b-1">Product List </h4>
                       </div>
-                      <div className="ml-auto">
-                        <input id="demo-input-search2" placeholder="Search Product" className="form-control" type="text" />
-                      </div>
                     </div>
                   </div>
                   <div className="table-responsive">
-                    <table id="example2" className="table table-bordered table-hover no-wrap">
-                      <thead>
-                        <tr>
-                          <th>No.</th>
-                          <th>Name</th>
-                          <th>Qty</th>
-                          <th>Msr</th>
-                          <th>Price</th>
-                          <th>Supplier</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {
-                          products.map((val, ind) => {
-                            return (
-                              <SellProduct des={val} key={ind} />
-                            )
-                          })
-                        }
-                      </tbody>
-                    </table>
-                  </div>
+              <table id="productList" className="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Msr</th>
+                    <th>Price</th>
+                    <th>Supplier</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    products.map((val, ind) => {
+                      return (
+                        <SellProduct des={val} key={ind}  tocart ={(prd)=> addToCart(prd)} />
+                      )
+                    })
+                  }
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Msr</th>
+                    <th>Price</th>
+                    <th>Supplier</th>
+                    <th>Action</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
                 </div>
               </div>
             </div>
@@ -162,18 +319,16 @@ export default function Sell() {
                       <div className="align-self-center">
                         <h4 className="text-black m-b-1">Customer List </h4>
                       </div>
-                      <div className="ml-auto">
-                        <input id="demo-input-search2" placeholder="Search Customer" className="form-control" type="text" />
-                      </div>
                     </div>
                   </div>
                   <div className="table-responsive">
-                    <table id="example2" className="table table-bordered table-hover no-wrap">
+                    <table id="customerList" className="table table-bordered table-hover no-wrap">
                       <thead>
                         <tr>
                           <th>No.</th>
                           <th>Name</th>
                           <th>Phone</th>
+                          <th>Gst</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -182,12 +337,21 @@ export default function Sell() {
                         {
                           custmors.map((val, ind) => {
                             return (
-                              <SellCust des={val} key={ind} />
+                              <SellCust des={val} key={ind} srno={ind+1} selectcust ={(cid)=>{ selectCustomer(cid)}} />
                             )
                           })
                         }
 
                       </tbody>
+                      <tfoot>
+                      <tr>
+                          <th>No.</th>
+                          <th>Name</th>
+                          <th>Phone</th>
+                          <th>Gst</th>
+                          <th>Action</th>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>
@@ -195,6 +359,9 @@ export default function Sell() {
             </div>
           </div>
         </div>
+
+       
+
       </div>
 
 
@@ -239,21 +406,12 @@ export default function Sell() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Call of Duty</td>
-                        <td>5</td>
-                        <td>500</td>
-                        <td>$64.50</td>
-                      </tr>
-
-                      <tr>
-                        <td>2</td>
-                        <td>Grown Ups Blue Ray</td>
-                        <td>642</td>
-                        <td>54</td>
-                        <td>$25.99</td>
-                      </tr>
+                      {
+                        
+                        cartproducts.map((val,ind)=>{
+                           return <SellBillItem  des={val} key={ind} sr={ind+1}/>
+                        })
+                      }
                     </tbody>
                   </table>
                 </div>
@@ -263,7 +421,7 @@ export default function Sell() {
                     <div className="form-group row">
                       <label htmlFor="uname" className="col-sm-3 control-label">Payment</label>
                       <div className="col-sm-6">
-                        <select className="form-control" style={{fontSize: '0.75rem'}}>
+                        <select className="form-control" style={{ fontSize: '0.75rem' }}>
                           <option>Cash</option>
                           <option>Online</option>
                         </select>
@@ -273,7 +431,7 @@ export default function Sell() {
                       <label htmlFor="email2" className="col-sm-3 control-label">Tax</label>
                       <div className="col-sm-6">
                         <div className="input-group">
-                          <input className="form-control" placeholder="14" type="number" />
+                          <input className="form-control" placeholder="0" name='tax' onChange={changeBill} type="number" />
                           <div className="input-group-addon">%</div>
                         </div>
                       </div>
@@ -282,7 +440,7 @@ export default function Sell() {
                       <label htmlFor="web1" className="col-sm-3 control-label">Discount</label>
                       <div className="col-sm-6">
                         <div className="input-group">
-                          <input className="form-control" id="web1" placeholder="5" type="number" />
+                          <input className="form-control" id="web1" placeholder="0" name='discount' onChange={changeBill} type="number" />
                           <div className="input-group-addon">%</div>
                         </div>
                       </div>
@@ -299,19 +457,19 @@ export default function Sell() {
                     <table className="table ">
                       <tbody><tr>
                         <th>Subtotal:</th>
-                        <td>$250.30</td>
+                        <td>₹{bill.cartprize}</td>
                       </tr>
                         <tr>
-                          <th>Tax (9.3%)</th>
-                          <td>$10.34</td>
+                          <th>Tax ({bill.tax}%)</th>
+                          <td>₹{bill.taxamount}</td>
                         </tr>
                         <tr>
-                          <th>Discount(10.5%):</th>
-                          <td>$5.80</td>
+                          <th>Discount({bill.discount}%):</th>
+                          <td>₹{bill.discountamount}</td>
                         </tr>
                         <tr>
                           <th>Total:</th>
-                          <td>$265.24</td>
+                          <td><span className="text-green font-weight-bold"><i className="fa fa-inr" /> {bill.cartprize + bill.taxamount-bill.discountamount}</span></td>
                         </tr>
                       </tbody></table>
                   </div>

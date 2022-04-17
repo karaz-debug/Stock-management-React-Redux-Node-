@@ -9,6 +9,7 @@ export default function Treeview(props) {
          <span> {props.name}</span>
           <span
                 className="pull-right-container"> 
+                <i className="fa fa-angle-left pull-right"></i>
                 </span> 
                 </a>
               <ul className="treeview-menu">
