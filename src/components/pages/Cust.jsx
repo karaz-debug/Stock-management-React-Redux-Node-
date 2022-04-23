@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Custtable from './container/Custtable'
 
 export default function Cust() {
@@ -7,43 +7,64 @@ export default function Cust() {
             id:1,
             name:"Manya",
             mobile:9876543210,
-            age:21,
-            gender:"Male",
-            dob:'06/08/1999'
+            gst:'2986492AGDF23',
+            address:"UbroSoft ganki nagar colony Lanka"
         },
         {
-            id:1,
-            name:"Manya",
-            mobile:9876543210,
-            age:21,
-            gender:"Male",
-            dob:'06/08/1999'
+          id:2,
+          name:"Rishub",
+          mobile:9876543210,
+          gst:'2986492AGDF23',
+          address:"UbroSoft ganki nagar colony Lanka"
         },
         {
-            id:1,
-            name:"Manya",
-            mobile:9876543210,
-            age:21,
-            gender:"Male",
-            dob:'06/08/1999'
-        },
+          id:3,
+          name:"Manish",
+          mobile:9876543210,
+          gst:'2986492AGDF23',
+          address:"UbroSoft ganki nagar colony Lanka"
+        }
     ]
+
+
+    useEffect(() => {
+      const script = document.createElement('script');
+      script.innerHTML=`
+      try {
+        $('#customerList').DataTable({
+          'paging'      : true,
+          'lengthChange': true,
+          'searching'   : true,
+          'ordering'    : false,
+          'info'        : true,
+          'autoWidth'   : false
+        }) 
+      } catch (error) {
+          window.location = '/';
+      }`;
+  
+      script.async = true;
+  
+      document.body.appendChild(script);
+  
+  
+    }, []);
+
 
     return (
         <div className="row">
         <div className="col-lg-12">
-          <div className="card">
+          <div className="card p-3">
             <div className="table-responsive">
-              <table className="table table-hover">
+              <table id='customerList' className="table table-hover">
                 <thead className="bg-primary text-white">
                   <tr>
-                    <th>#</th>
-                    <th>Customer</th>
-                    <th>Phone</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>DOB</th>
-                    <th>Action</th>
+                    <th className='text-white'>#</th>
+                    <th className='text-white'>Customer</th>
+                    <th className='text-white'>Phone</th>
+                    <th className='text-white'>GST</th>
+                    <th className='text-white'>Address</th>
+                    <th className='text-white'>Action</th>
                   </tr>
                 </thead>
                 <tbody>

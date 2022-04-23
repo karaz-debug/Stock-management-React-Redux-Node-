@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import "./App.css"
 import Head from "./components/Head"
 import Aside from "./components/Aside"
@@ -17,9 +17,13 @@ import Transaction from './components/pages/Transaction'
 import MyShop from './containers/MyShop'
 
 export default function App() {
-
+  useEffect(() => {
+    console.log("Page Loaded");
+  }, []);
    
   return (
+
+
    
     <div className="wrapper boxed-wrapper">
     <Head/>    

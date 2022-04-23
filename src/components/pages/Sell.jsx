@@ -191,13 +191,29 @@ export default function Sell() {
 
   useEffect(() => {
     const script = document.createElement('script');
-
-    script.src = "./dist/js/custom.js";
+    script.innerHTML=`
+    try {
+    $('#customerList').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : false
+    });
+    $('#productList').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      ' autoWidth'   : false
+    }) 
+  } catch (error) {
+      window.location = '/'
+  }`;
     script.async = true;
-
     document.body.appendChild(script);
-
-
   }, []);
 
   return (

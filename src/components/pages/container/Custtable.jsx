@@ -7,9 +7,8 @@ export default function Custtable(props) {
         <td>{data.id}</td>
         <td>{data.name}</td>
         <td>{data.mobile}</td>
-        <td>{data.age}</td>
-        <td>{data.gender}</td> 
-        <td>{data.dob}</td> 
+        <td>{data.gst}</td>
+        <td>{data.address}</td> 
         <td>
           <button type="button" className="btn btn-sm btn-primary mb-1"><i className="fa fa-edit"> </i> Edit</button>
           <span>  </span>
