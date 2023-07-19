@@ -275,6 +275,7 @@ export default function Sell() {
           </ul>
           {/* Tab panes */}
           <div className="tab-content">
+             {/*first tab*/}
             <div className="tab-pane active" id="product" role="tabpanel" aria-expanded="true">
               <div className="card-body">
                 <div className="box-body">
@@ -375,9 +376,6 @@ export default function Sell() {
             </div>
           </div>
         </div>
-
-       
-
       </div>
 
 
@@ -390,13 +388,13 @@ export default function Sell() {
             {/* Modal Header */}
             <div className="modal-header">
               <div className="col">
-                <h4 className="modal-title"><strong>Company Name</strong>  </h4>
+                <h4 className="modal-title"><strong>Decalle Palace Hotel</strong>  </h4>
                 <address>
-                  2nd Floor, Janki Nagar Mod,<br /> Lanka, Samne Ghat Rd,<br /> near BHU Trauma Centre,<br /> Varanasi, Uttar Pradesh 221005
+                  2nd Floor, Decalle Palace,<br /> 12th Street ,<br /> near Diamond Plaza,<br /> Nairobi, Kenya 00100
 
                   <br />
-                  Phone:<b> 9876543110</b><br />
-                  Email:<b>demo@ubrosoft.com </b>
+                  Phone:<b> +254 725917635</b><br />
+                  Email:<b>decalle@palace.com </b>
                 </address>
               </div>
 
@@ -507,3 +505,5 @@ export default function Sell() {
 
   )
 }
+
+

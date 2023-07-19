@@ -1,42 +1,58 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import React, { useState } from 'react';
 
 export default function AddSup() {
-
   const [supplier, setSupplier] = useState({
-    id: "",
-    address: "",
-    company: "",
-    email: "",
-    gst: "",
     name: "",
-    number: ""
+    company: "",
+    mobile: "",
+    address: "",
+    email: "",
   });
-  //edit wla part is remaning
-
-  const { sup } = useParams();
-  useEffect(() => {
-    //fetch data from id
-    if(sup != null){
-      console.log("Supplier: ",sup);
-    }
-   
-  }, []);
-  
-
 
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setSupplier(values => ({ ...values, [name]: value }))
-  }
+    setSupplier((prevSupplier) => ({ ...prevSupplier, [name]: value }));
+  };
 
-  const addSupplier = (event) => {
+  const addSupplier = async (event) => {
     event.preventDefault();
     console.log(supplier);
-    //clear the form
-    document.getElementById('supplierForm').reset();
-  }
+
+    try {
+      // Get the authentication token after successful login
+      const authToken = localStorage.getItem('accessToken');
+
+      // Make the API request to add the supplier
+      const response = await fetch('/api/suppliers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}`, // Include the authentication token in the request headers
+        },
+        body: JSON.stringify(supplier),
+      });
+
+      if (response.ok) {
+        // Supplier added successfully
+        console.log('Supplier added successfully!');
+        // Clear the form
+        setSupplier({
+          name: "",
+          company: "",
+          mobile: "",
+          address: "",
+          email: "",
+        });
+      } else {
+        // Error adding the supplier
+        console.error('Error adding supplier:', response.status);
+      }
+    } catch (error) {
+      console.error('Error making API request:', error);
+    }
+  };
+
   return (
     <div className="row">
       <div className="col-lg-12">
@@ -70,17 +86,6 @@ export default function AddSup() {
                 </div>
                 <div className="col-md-6">
                   <div className="form-group has-feedback">
-                    <label className="control-label">GST</label>
-
-                    <input className="form-control" placeholder="" type="text"
-                      name="gst"
-                      onChange={handleChange}
-                      required />
-                    <span className=" fa fa-address-card-o form-control-feedback" aria-hidden="true" />
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="form-group has-feedback">
                     <label className="control-label">E-mail</label>
                     <input className="form-control" placeholder="E-mail"
                       name="email" required
@@ -93,9 +98,9 @@ export default function AddSup() {
                   <div className="form-group has-feedback">
                     <label className="control-label">Contact Number</label>
                     <input className="form-control" placeholder="Contact Number"
-                      name="number" required
+                      name="mobile" required
                       onChange={handleChange}
-                      type="number" />
+                      type="mobile" />
                     <span className="fa fa-phone form-control-feedback" aria-hidden="true" />
                   </div>
                 </div>

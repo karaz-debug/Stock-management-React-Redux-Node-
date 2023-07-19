@@ -1,10 +1,10 @@
 import React from 'react'
 
 export default function Footer() {
-    return (
+  return (
     <footer className="main-footer">
-      <div className="pull-right ">ubrosoft</div>
+      <div className="pull-right ">Abdiqafar . A . Mohamed</div>
       Made By
     </footer>
-    )
+  )
 }
